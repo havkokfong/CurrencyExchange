@@ -18,11 +18,11 @@
 
         <Spinner
             android:id="@+id/Spinner1"
-            android:layout_width="133dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:background="@color/Gray"
-
-            />
+            android:gravity="center" />
 
         <EditText
             android:id="@+id/editText1"
@@ -30,8 +30,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:inputType="numberDecimal"
-            android:textColor="@color/White"
-            android:background="@color/Gray"
+            android:textColor="@color/Black"
+            android:background="@color/White"
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp" />
 
@@ -47,10 +47,10 @@
             android:id="@+id/exchangeButton"
             android:layout_width="152dp"
             android:layout_height="match_parent"
-            android:background="@color/Gray"
+            android:background="@color/White"
             android:text="@string/exchangeButton"
             android:textSize="20sp"
-            android:textColor="@color/White"/>
+            android:textColor="@color/Black"/>
 
     </LinearLayout>
 

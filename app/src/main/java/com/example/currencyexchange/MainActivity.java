@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         countryList.add(new CountryList("HKD", R.drawable.hongkong));
         countryList.add(new CountryList("THB", R.drawable.thailand));
         countryList.add(new CountryList("CNY", R.drawable.china));
-
     }
+
+
+
 }

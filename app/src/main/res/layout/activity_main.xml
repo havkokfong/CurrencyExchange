@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Black"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/Black"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:padding="10dp"
-        android:layout_gravity="center">
+        android:padding="10dp">
 
 
         <Spinner
@@ -29,12 +29,12 @@
             android:id="@+id/editText1"
             android:layout_width="180dp"
             android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/White"
             android:gravity="center"
             android:inputType="numberDecimal"
-            android:textColor="@color/Black"
-            android:background="@color/White"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp" />
+            android:textColor="@color/Black" />
 
     </LinearLayout>
 
@@ -50,8 +50,8 @@
             android:layout_height="match_parent"
             android:background="@color/White"
             android:text="@string/exchangeButton"
-            android:textSize="20sp"
-            android:textColor="@color/Black"/>
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -65,11 +65,11 @@
             android:id="@+id/result_text"
             android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:text="@string/rate_table_text"
-            android:textSize="20sp"
-            android:textColor="@color/Black"
             android:background="@color/White"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="@string/rate_table_text"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -99,7 +99,7 @@
 
             <ImageView
                 android:layout_width="80dp"
-                android:layout_height="62dp"
+                android:layout_height="58dp"
                 android:layout_gravity="fill_vertical"
                 android:layout_marginStart="25dp"
                 android:layout_marginLeft="25dp"
@@ -117,15 +117,165 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_gravity="fill_vertical"
+                android:scaleType="fitXY"
+                android:src="@drawable/australia" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/White"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_gravity="fill_vertical"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/newzealand"
+                tools:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/White"
+                android:gravity="center" />
+
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_gravity="fill_vertical"
+                android:scaleType="fitXY"
+                android:src="@drawable/euro" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/White"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_gravity="fill_vertical"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/canada"
+                tools:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/White"
+                android:gravity="center" />
+
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_gravity="fill_vertical"
+                android:scaleType="fitXY"
+                android:src="@drawable/china" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/White"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_gravity="fill_vertical"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/hongkong"
+                tools:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/White"
+                android:gravity="center" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_gravity="fill_vertical"
+                android:scaleType="fitXY"
+                android:src="@drawable/philippine" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/White"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_gravity="fill_vertical"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:src="@drawable/thailand"
+                tools:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/White"
+                android:gravity="center" />
+
+
+
+        </TableRow>
     </TableLayout>
 
 </LinearLayout>

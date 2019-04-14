@@ -79,17 +79,19 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="58dp"
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/singaporeImage"
                 android:layout_width="80dp"
                 android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
+                android:layout_gravity="center"
                 android:scaleType="fitXY"
                 android:src="@drawable/singapore" />
 
             <TextView
+                android:id="@+id/SGDRate"
                 android:layout_width="80dp"
                 android:layout_height="58dp"
                 android:layout_marginStart="5dp"
@@ -98,15 +100,16 @@
                 android:gravity="center" />
 
             <ImageView
-                android:layout_width="80dp"
+                android:id="@+id/usaImage"
+                android:layout_width="85dp"
                 android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
-                android:layout_marginStart="25dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 android:src="@drawable/usa"
                 tools:scaleType="fitXY" />
 
             <TextView
+                android:id="@+id/USDRate"
                 android:layout_width="80dp"
                 android:layout_height="58dp"
                 android:layout_marginStart="5dp"
@@ -118,8 +121,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="80dp"
@@ -129,6 +132,7 @@
                 android:src="@drawable/australia" />
 
             <TextView
+                android:id="@+id/AUDRate"
                 android:layout_width="80dp"
                 android:layout_height="58dp"
                 android:layout_marginStart="5dp"
@@ -140,17 +144,17 @@
                 android:layout_width="80dp"
                 android:layout_height="58dp"
                 android:layout_gravity="fill_vertical"
-                android:layout_marginStart="25dp"
-                android:layout_marginLeft="25dp"
                 android:src="@drawable/newzealand"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 tools:scaleType="fitXY" />
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="58dp"
+                android:background="@color/White"
                 android:layout_marginStart="5dp"
                 android:layout_marginLeft="5dp"
-                android:background="@color/White"
                 android:gravity="center" />
 
         </TableRow>
@@ -158,8 +162,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="80dp"
@@ -180,9 +184,9 @@
                 android:layout_width="80dp"
                 android:layout_height="58dp"
                 android:layout_gravity="fill_vertical"
-                android:layout_marginStart="25dp"
-                android:layout_marginLeft="25dp"
                 android:src="@drawable/canada"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 tools:scaleType="fitXY" />
 
             <TextView
@@ -198,8 +202,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="80dp"
@@ -220,9 +224,9 @@
                 android:layout_width="80dp"
                 android:layout_height="58dp"
                 android:layout_gravity="fill_vertical"
-                android:layout_marginStart="25dp"
-                android:layout_marginLeft="25dp"
                 android:src="@drawable/hongkong"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 tools:scaleType="fitXY" />
 
             <TextView
@@ -238,8 +242,8 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="5dp"
+            android:gravity="center">
 
             <ImageView
                 android:layout_width="80dp"
@@ -258,11 +262,11 @@
 
             <ImageView
                 android:layout_width="80dp"
-                android:layout_height="58dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="fill_vertical"
-                android:layout_marginStart="25dp"
-                android:layout_marginLeft="25dp"
                 android:src="@drawable/thailand"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
                 tools:scaleType="fitXY" />
 
             <TextView
@@ -272,7 +276,6 @@
                 android:layout_marginLeft="5dp"
                 android:background="@color/White"
                 android:gravity="center" />
-
 
 
         </TableRow>

@@ -57,39 +57,77 @@ public class MainActivity extends AppCompatActivity {
         initlist();
 
 
-        Spinner spinner1 = findViewById(R.id.Spinner1);
+        final Spinner spinner1 = findViewById(R.id.Spinner1);
         final Spinner spinner2 = findViewById(R.id.Spinner2);
 
         mAdapter = new CountryAdapter(this, countryList);
         spinner1.setAdapter(mAdapter);
         spinner2.setAdapter(mAdapter);
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                CountryList countrySelected = (CountryList) parent.getItemAtPosition(position);
-                String countrySelectedName = countrySelected.getCountryNameV();
-                Toast.makeText(MainActivity.this, countrySelectedName + " selected", Toast.LENGTH_SHORT).show();
-                jsonparse(countrySelectedName);
-                spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        String url = "https://api.exchangeratesapi.io/latest?base=SGD";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @SuppressLint({"DefaultLocale", "SetTextI18n"})
                     @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    public void onResponse(JSONObject response) {
+                        try {
+                            JSONObject jsonObject = response.getJSONObject("rates");
+                            double SGD = jsonObject.getDouble("SGD");
+                            double USD = jsonObject.getDouble("USD");
+                            double AUD = jsonObject.getDouble("AUD");
+                            double NZD = jsonObject.getDouble("NZD");
+                            double EUR = jsonObject.getDouble("EUR");
+                            double CAD = jsonObject.getDouble("CAD");
+                            double CNY = jsonObject.getDouble("CNY");
+                            double HKD = jsonObject.getDouble("HKD");
+                            double PHP = jsonObject.getDouble("PHP");
+                            double THB = jsonObject.getDouble("THB");
+                            sgdRate.setText("SGD\n" + String.valueOf(String.format("%.4f", SGD)));
+                            usdRate.setText("USD\n" + String.valueOf(String.format("%.4f", USD)));
+                            audRate.setText("AUD\n" + String.valueOf(String.format("%.4f", AUD)));
+                            nzdRate.setText("NZD\n" + String.valueOf(String.format("%.4f", NZD)));
+                            eurRate.setText("EUR\n" + String.valueOf(String.format("%.4f", EUR)));
+                            cadRate.setText("CAD\n" + String.valueOf(String.format("%.4f", CAD)));
+                            cnyRate.setText("CNY\n" + String.valueOf(String.format("%.4f", CNY)));
+                            hkdRate.setText("HKD\n" + String.valueOf(String.format("%.4f", HKD)));
+                            phpRate.setText("PHP\n" + String.valueOf(String.format("%.4f", PHP)));
+                            thbRate.setText("THB\n" + String.valueOf(String.format("%.4f", THB)));
 
+                            spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                    CountryList countrySelected = (CountryList) parent.getItemAtPosition(position);
+                                    String countrySelectedName = countrySelected.getCountryNameV();
+                                    Toast.makeText(MainActivity.this, countrySelectedName + " selected", Toast.LENGTH_SHORT).show();
+                                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                        @Override
+                                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                                        }
+
+                                        @Override
+                                        public void onNothingSelected(AdapterView<?> parent) {
+
+                                        }
+                                    });
+                                }
+
+                                @Override
+                                public void onNothingSelected(AdapterView<?> parent) {
+
+                                }
+                            });
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-            }
-
+                }, new Response.ErrorListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
             }
         });
-
-
+        mQueue.add(request);
     }
 
     private void initlist (){
@@ -106,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         countryList.add(new CountryList("THB", R.drawable.thailand));
     }
 
-    private void jsonparse(String name){
+   /* private void jsonparse(String name){
 
         if (name.equals("SGD")){
         String url = "https://api.exchangeratesapi.io/latest?base=SGD";
@@ -149,8 +187,5 @@ public class MainActivity extends AppCompatActivity {
         });
         mQueue.add(request);
     }
-
-
-
-    }
+    }*/
 }

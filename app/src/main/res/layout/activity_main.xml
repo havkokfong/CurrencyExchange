@@ -9,276 +9,325 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="10dp">
-
-
-        <Spinner
-            android:id="@+id/Spinner1"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:background="@color/Gray"
-            android:gravity="center" />
-
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="180dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:background="@color/White"
-            android:gravity="center"
-            android:inputType="numberDecimal"
-            android:textColor="@color/Black" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:gravity="center"
-        android:padding="10dp">
-
-        <Button
-            android:id="@+id/exchangeButton"
-            android:layout_width="152dp"
-            android:layout_height="match_parent"
-            android:background="@color/White"
-            android:text="@string/exchangeButton"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:gravity="center"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/result_text"
-            android:layout_width="180dp"
-            android:layout_height="match_parent"
-            android:background="@color/White"
-            android:gravity="center"
-            android:text="@string/rate_table_text"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <TableLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-            <ImageView
-                android:id="@+id/singaporeImage"
-                android:layout_width="80dp"
-                android:layout_height="58dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
-                android:scaleType="fitXY"
-                android:src="@drawable/singapore" />
-
-            <TextView
-                android:id="@+id/SGDRate"
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
-
-            <ImageView
-                android:id="@+id/usaImage"
-                android:layout_width="85dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:src="@drawable/usa"
-                tools:scaleType="fitXY" />
-
-            <TextView
-                android:id="@+id/USDRate"
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
-                android:scaleType="fitXY"
-                android:src="@drawable/australia" />
-
-            <TextView
-                android:id="@+id/AUDRate"
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
-                android:src="@drawable/newzealand"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                tools:scaleType="fitXY" />
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:background="@color/White"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:gravity="center" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
-                android:scaleType="fitXY"
-                android:src="@drawable/euro" />
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
-                android:src="@drawable/canada"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                tools:scaleType="fitXY" />
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
-                android:scaleType="fitXY"
-                android:src="@drawable/china" />
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
-                android:src="@drawable/hongkong"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                tools:scaleType="fitXY" />
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_gravity="fill_vertical"
-                android:scaleType="fitXY"
-                android:src="@drawable/philippine" />
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="fill_vertical"
-                android:src="@drawable/thailand"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                tools:scaleType="fitXY" />
-
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="58dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/White"
-                android:gravity="center" />
+                android:gravity="center"
+                android:padding="10dp">
 
 
-        </TableRow>
-    </TableLayout>
+                <Spinner
+                    android:id="@+id/Spinner1"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/Gray"
+                    android:gravity="center" />
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/White"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/Black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <Spinner
+                    android:id="@+id/Spinner2"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/Gray"
+                    android:gravity="center" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/White"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/Black" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <Button
+                    android:id="@+id/exchangeButton"
+                    android:layout_width="152dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/White"
+                    android:text="@string/exchangeButton"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/result_text"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/White"
+                    android:gravity="center"
+                    android:text="@string/rate_table_text"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/singaporeImage"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/singapore" />
+
+                    <TextView
+                        android:id="@+id/SGDRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center"
+                        android:textColor="@color/Black" />
+
+                    <ImageView
+                        android:id="@+id/usaImage"
+                        android:layout_width="85dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/usa"
+                        tools:scaleType="fitXY" />
+
+                    <TextView
+                        android:id="@+id/USDRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_gravity="fill_vertical"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/australia" />
+
+                    <TextView
+                        android:id="@+id/AUDRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_gravity="fill_vertical"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/newzealand"
+                        tools:scaleType="fitXY" />
+
+                    <TextView
+                        android:id="@+id/NZDRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_gravity="fill_vertical"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/euro" />
+
+                    <TextView
+                        android:id="@+id/EURRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_gravity="fill_vertical"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/canada"
+                        tools:scaleType="fitXY" />
+
+                    <TextView
+                        android:id="@+id/CADRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_gravity="fill_vertical"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/china" />
+
+                    <TextView
+                        android:id="@+id/CNYRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_gravity="fill_vertical"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/hongkong"
+                        tools:scaleType="fitXY" />
+
+                    <TextView
+                        android:id="@+id/HKDRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_gravity="fill_vertical"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/philippine" />
+
+                    <TextView
+                        android:id="@+id/PHPRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="fill_vertical"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/thailand"
+                        tools:scaleType="fitXY" />
+
+                    <TextView
+                        android:id="@+id/THDRate"
+                        android:layout_width="80dp"
+                        android:layout_height="58dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@color/White"
+                        android:gravity="center" />
+
+
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

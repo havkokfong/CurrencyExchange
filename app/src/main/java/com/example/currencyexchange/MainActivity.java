@@ -1,5 +1,6 @@
 package com.example.currencyexchange;
 
+import android.annotation.SuppressLint;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList countryList;
     private CountryAdapter mAdapter;
     private RequestQueue mQueue;
-    private TextView sgdRate, usdRate, audRate;
-    private ArrayList mrateList;
+    private TextView sgdRate, usdRate, audRate, nzdRate, eurRate, cadRate, cnyRate, hkdRate,phpRate,
+            thbRate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,20 +46,29 @@ public class MainActivity extends AppCompatActivity {
         sgdRate = findViewById(R.id.SGDRate);
         usdRate = findViewById(R.id.USDRate);
         audRate = findViewById(R.id.AUDRate);
+        nzdRate = findViewById(R.id.NZDRate);
+        eurRate = findViewById(R.id.EURRate);
+        cadRate = findViewById(R.id.CADRate);
+        cnyRate = findViewById(R.id.CNYRate);
+        hkdRate = findViewById(R.id.HKDRate);
+        phpRate = findViewById(R.id.PHPRate);
+        thbRate = findViewById(R.id.THDRate);
         mQueue = Volley.newRequestQueue(this);
         initlist();
-        jsonparse();
 
-        Spinner spinner = findViewById(R.id.Spinner1);
+
+        Spinner spinner1 = findViewById(R.id.Spinner1);
+        Spinner spinner2 = findViewById(R.id.Spinner2);
 
         mAdapter = new CountryAdapter(this, countryList);
-        spinner.setAdapter(mAdapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner1.setAdapter(mAdapter);
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 CountryList countrySelected = (CountryList) parent.getItemAtPosition(position);
                 String countrySelectedName = countrySelected.getCountryNameV();
                 Toast.makeText(MainActivity.this, countrySelectedName + " selected", Toast.LENGTH_SHORT).show();
+                jsonparse(countrySelectedName);
 
             }
 
@@ -67,6 +77,25 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        mAdapter = new CountryAdapter(this, countryList);
+        spinner2.setAdapter(mAdapter);
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                CountryList countrySelected = (CountryList) parent.getItemAtPosition(position);
+                String countrySelectedName = countrySelected.getCountryNameV();
+                Toast.makeText(MainActivity.this, countrySelectedName + " selected", Toast.LENGTH_SHORT).show();
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
     private void initlist (){
@@ -83,11 +112,13 @@ public class MainActivity extends AppCompatActivity {
         countryList.add(new CountryList("THB", R.drawable.thailand));
     }
 
-    private void jsonparse(){
-        String url = "https://api.exchangeratesapi.io/latest?base=SGD";
+    private void jsonparse(String name){
 
+        if (name.equals("SGD")){
+        String url = "https://api.exchangeratesapi.io/latest?base=SGD";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
+                    @SuppressLint({"DefaultLocale", "SetTextI18n"})
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
@@ -102,9 +133,16 @@ public class MainActivity extends AppCompatActivity {
                             double HKD = jsonObject.getDouble("HKD");
                             double PHP = jsonObject.getDouble("PHP");
                             double THB = jsonObject.getDouble("THB");
-                            sgdRate.append(String.valueOf(SGD));
-                            usdRate.append(String.valueOf(USD));
-
+                            sgdRate.setText("SGD\n" + String.valueOf(String.format("%.4f", SGD)));
+                            usdRate.setText("USD\n" + String.valueOf(String.format("%.4f", USD)));
+                            audRate.setText("AUD\n" + String.valueOf(String.format("%.4f", AUD)));
+                            nzdRate.setText("NZD\n" + String.valueOf(String.format("%.4f", NZD)));
+                            eurRate.setText("EUR\n" + String.valueOf(String.format("%.4f", EUR)));
+                            cadRate.setText("CAD\n" + String.valueOf(String.format("%.4f", CAD)));
+                            cnyRate.setText("CNY\n" + String.valueOf(String.format("%.4f", CNY)));
+                            hkdRate.setText("HKD\n" + String.valueOf(String.format("%.4f", HKD)));
+                            phpRate.setText("PHP\n" + String.valueOf(String.format("%.4f", PHP)));
+                            thbRate.setText("THB\n" + String.valueOf(String.format("%.4f", THB)));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -116,5 +154,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mQueue.add(request);
+    }
+
+
+
     }
 }

@@ -136,7 +136,8 @@
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
                         android:gravity="center"
-                        android:textColor="@color/Black" />
+                        android:textColor="@color/Black"
+                        android:textSize="20sp"/>
 
                     <ImageView
                         android:id="@+id/usaImage"
@@ -154,7 +155,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp"/>
                 </TableRow>
 
                 <TableRow
@@ -177,7 +180,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp" />
 
                     <ImageView
                         android:layout_width="80dp"
@@ -195,7 +200,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp" />
 
                 </TableRow>
 
@@ -219,7 +226,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp" />
 
                     <ImageView
                         android:layout_width="80dp"
@@ -237,7 +246,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp"/>
 
                 </TableRow>
 
@@ -261,7 +272,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp"/>
 
                     <ImageView
                         android:layout_width="80dp"
@@ -279,7 +292,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp"/>
 
                 </TableRow>
 
@@ -303,7 +318,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp" />
 
                     <ImageView
                         android:layout_width="80dp"
@@ -321,7 +338,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
                         android:background="@color/White"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:textColor="@color/Black"
+                        android:textSize="20sp" />
 
 
                 </TableRow>

@@ -1,9 +1,12 @@
 package com.example.currencyexchange;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         hkdRate = findViewById(R.id.HKDRate);
         phpRate = findViewById(R.id.PHPRate);
         thbRate = findViewById(R.id.THDRate);
+        result = 1.0;
         mQueue = Volley.newRequestQueue(this);
         initlist();
 
@@ -101,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                                     final String countrySelectedName = countrySelected.getCountryNameV();
                                     Toast.makeText(MainActivity.this, countrySelectedName + " selected", Toast.LENGTH_SHORT).show();
                                     spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                        @SuppressLint("CommitPrefEdits")
                                         @Override
                                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                             CountryList countrySelected2 = (CountryList) parent.getItemAtPosition(position);
@@ -108,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                                             Toast.makeText(MainActivity.this, countrySelectedName2 + " selected", Toast.LENGTH_SHORT).show();
                                             calculate(countrySelectedName, countrySelectedName2, SGD,
                                                     USD,AUD,NZD,EUR,CAD,CNY,HKD,PHP,THB);
+
                                         }
 
                                         @Override
@@ -138,7 +144,11 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("DefaultLocale")
             @Override
             public void onClick(View v) {
-                viewText2.setText(String.valueOf(String.format("%.4f", result)));
+                try {
+                    double total = result * Double.parseDouble(String.valueOf(editText1.getText()));
+                    viewText2.setText(String.valueOf(String.format("%.4f", total)));
+                }catch (Exception e){}
+
             }
         });
     }
@@ -157,86 +167,157 @@ public class MainActivity extends AppCompatActivity {
         countryList.add(new CountryList("THB", R.drawable.thailand));
     }
 
-   /* private void jsonparse(String name){
 
-        if (name.equals("SGD")){
-        String url = "https://api.exchangeratesapi.io/latest?base=SGD";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @SuppressLint({"DefaultLocale", "SetTextI18n"})
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONObject jsonObject = response.getJSONObject("rates");
-                            double SGD = jsonObject.getDouble("SGD");
-                            double USD = jsonObject.getDouble("USD");
-                            double AUD = jsonObject.getDouble("AUD");
-                            double NZD = jsonObject.getDouble("NZD");
-                            double EUR = jsonObject.getDouble("EUR");
-                            double CAD = jsonObject.getDouble("CAD");
-                            double CNY = jsonObject.getDouble("CNY");
-                            double HKD = jsonObject.getDouble("HKD");
-                            double PHP = jsonObject.getDouble("PHP");
-                            double THB = jsonObject.getDouble("THB");
-                            sgdRate.setText("SGD\n" + String.valueOf(String.format("%.4f", SGD)));
-                            usdRate.setText("USD\n" + String.valueOf(String.format("%.4f", USD)));
-                            audRate.setText("AUD\n" + String.valueOf(String.format("%.4f", AUD)));
-                            nzdRate.setText("NZD\n" + String.valueOf(String.format("%.4f", NZD)));
-                            eurRate.setText("EUR\n" + String.valueOf(String.format("%.4f", EUR)));
-                            cadRate.setText("CAD\n" + String.valueOf(String.format("%.4f", CAD)));
-                            cnyRate.setText("CNY\n" + String.valueOf(String.format("%.4f", CNY)));
-                            hkdRate.setText("HKD\n" + String.valueOf(String.format("%.4f", HKD)));
-                            phpRate.setText("PHP\n" + String.valueOf(String.format("%.4f", PHP)));
-                            thbRate.setText("THB\n" + String.valueOf(String.format("%.4f", THB)));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-        mQueue.add(request);
-    }
-    }*/
+   public double calculate(String selected1, String selected2, final double SGD, double USD, double AUD, double NZD,
+                           double EUR, double CAD, double CNY, double HKD, double PHP, double THB) {
 
-   public double calculate(String selected1, String selected2, double SGD, double USD, double AUD, double NZD,
-                     double EUR, double CAD, double CNY, double HKD, double PHP, double THB) {
-       try {
+      try {
 
            if (selected1.equals("SGD")) {
                if (selected2.equals("SGD")) {
                    result = SGD;
                } else if (selected2.equals("USD")) {
-                   result = USD * Double.parseDouble(String.valueOf(editText1.getText()));
+                   result = USD;
                } else if (selected2.equals("AUD")) {
-                   result = AUD * Double.parseDouble(String.valueOf(editText1.getText()));
+                   result = AUD;
                } else if (selected2.equals("NZD")) {
-                   result = NZD * Double.parseDouble(String.valueOf(editText1.getText()));
+                   result = NZD;
                } else if (selected2.equals("EUR")) {
-                   result = EUR * Double.parseDouble(String.valueOf(editText1.getText()));
+                   result = EUR;
                } else if (selected2.equals("CAD")) {
-                   result = CAD * Double.parseDouble(String.valueOf(editText1.getText()));
+                   result = CAD;
                } else if (selected2.equals("CNY")) {
-                   result = CNY * Double.parseDouble(String.valueOf(editText1.getText()));
+                   result = CNY;
                } else if (selected2.equals("HKD")) {
-                   result = HKD * Double.parseDouble(String.valueOf(editText1.getText()));
+                   result = HKD;
                } else if (selected2.equals("PHP")) {
-                   result = PHP * Double.parseDouble(String.valueOf(editText1.getText()));
+                   result = PHP;
                } else {
-                   result = THB * Double.parseDouble(String.valueOf(editText1.getText()));
-               }
+                   result = THB;
+               }return result;
+           }
+
+           else if (selected1.equals("USD")) {
+              if (selected2.equals("SGD")) {
+                  result = (SGD/USD);
+              } else if (selected2.equals("USD")) {
+                  result = 1.00;
+              } else if (selected2.equals("AUD")) {
+                  result = (AUD/USD);
+              } else if (selected2.equals("NZD")) {
+                  result = NZD/USD;
+              } else if (selected2.equals("EUR")) {
+                  result = EUR/USD;
+              } else if (selected2.equals("CAD")) {
+                  result = CAD/USD;
+              } else if (selected2.equals("CNY")) {
+                  result = CNY/USD;
+              } else if (selected2.equals("HKD")) {
+                  result = HKD/USD;
+              } else if (selected2.equals("PHP")) {
+                  result = PHP/USD;
+              } else {
+                  result = THB/USD;
+              }return result;
+          }
+
+           else if (selected1.equals("AUD")) {
+               if (selected2.equals("SGD")) {
+                   result = (SGD/AUD);
+               } else if (selected2.equals("USD")) {
+                   result = USD/AUD;
+               } else if (selected2.equals("AUD")) {
+                   result = 1.0;
+               } else if (selected2.equals("NZD")) {
+                   result = NZD/AUD;
+               } else if (selected2.equals("EUR")) {
+                   result = EUR/AUD;
+               } else if (selected2.equals("CAD")) {
+                   result = CAD/AUD;
+               } else if (selected2.equals("CNY")) {
+                   result = CNY/AUD;
+               } else if (selected2.equals("HKD")) {
+                   result = HKD/AUD;
+               } else if (selected2.equals("PHP")) {
+                   result = PHP/AUD;
+               } else {
+                   result = THB/AUD;
+               }return result;
+           }
+
+           else if (selected1.equals("NZD")) {
+               if (selected2.equals("SGD")) {
+                   result = (SGD/NZD);
+               } else if (selected2.equals("USD")) {
+                   result = USD/NZD;
+               } else if (selected2.equals("AUD")) {
+                   result = AUD/NZD;
+               } else if (selected2.equals("NZD")) {
+                   result = 1.0;
+               } else if (selected2.equals("EUR")) {
+                   result = EUR/NZD;
+               } else if (selected2.equals("CAD")) {
+                   result = CAD/NZD;
+               } else if (selected2.equals("CNY")) {
+                   result = CNY/NZD;
+               } else if (selected2.equals("HKD")) {
+                   result = HKD/NZD;
+               } else if (selected2.equals("PHP")) {
+                   result = PHP/NZD;
+               } else {
+                   result = THB/NZD;
+               }return result;
+           }
+           else if (selected1.equals("EUR")) {
+               if (selected2.equals("SGD")) {
+                   result = (SGD/EUR);
+               } else if (selected2.equals("USD")) {
+                   result = USD/EUR;
+               } else if (selected2.equals("AUD")) {
+                   result = AUD/EUR;
+               } else if (selected2.equals("NZD")) {
+                   result = NZD/EUR;
+               } else if (selected2.equals("EUR")) {
+                   result = 1.0;
+               } else if (selected2.equals("CAD")) {
+                   result = CAD/EUR;
+               } else if (selected2.equals("CNY")) {
+                   result = CNY/EUR;
+               } else if (selected2.equals("HKD")) {
+                   result = HKD/EUR;
+               } else if (selected2.equals("PHP")) {
+                   result = PHP/EUR;
+               } else {
+                   result = THB/EUR;
+               }return result;
+           }
+
+           else if (selected1.equals("CAD")) {
+               if (selected2.equals("SGD")) {
+                   result = (SGD/CAD);
+               } else if (selected2.equals("USD")) {
+                   result = USD/CAD;
+               } else if (selected2.equals("AUD")) {
+                   result = AUD/CAD;
+               } else if (selected2.equals("NZD")) {
+                   result = NZD/CAD;
+               } else if (selected2.equals("EUR")) {
+                   result = EUR/CAD;
+               } else if (selected2.equals("CAD")) {
+                   result = 1.0;
+               } else if (selected2.equals("CNY")) {
+                   result = CNY/CAD;
+               } else if (selected2.equals("HKD")) {
+                   result = HKD/CAD;
+               } else if (selected2.equals("PHP")) {
+                   result = PHP/CAD;
+               } else {
+                   result = THB/CAD;
+               }return result;
            }
 
        }catch (Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
        }return result;
    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
 }

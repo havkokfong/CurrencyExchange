@@ -42,7 +42,6 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/White"
                     android:gravity="center"
-                    android:text="@string/inputText"
                     android:inputType="numberDecimal"
                     android:textColor="@color/Black" />
 
@@ -71,7 +70,8 @@
                     android:layout_marginLeft="5dp"
                     android:background="@color/White"
                     android:gravity="center"
-                    android:textColor="@color/Black" />
+                    android:textColor="@color/Black"
+                    android:textSize="20sp"/>
 
 
             </LinearLayout>

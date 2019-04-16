@@ -28,20 +28,22 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editText;
+    private EditText editText1;
     private Button exchange;
     private ArrayList countryList;
     private CountryAdapter mAdapter;
     private RequestQueue mQueue;
     private TextView sgdRate, usdRate, audRate, nzdRate, eurRate, cadRate, cnyRate, hkdRate,phpRate,
-            thbRate;
+            thbRate, viewText2;
+    double result ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editText = findViewById(R.id.editText1);
+        editText1 = findViewById(R.id.editText1);
+        viewText2 = findViewById(R.id.viewText2);
         exchange = findViewById(R.id.exchangeButton);
         sgdRate = findViewById(R.id.SGDRate);
         usdRate = findViewById(R.id.USDRate);
@@ -71,16 +73,16 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             JSONObject jsonObject = response.getJSONObject("rates");
-                            double SGD = jsonObject.getDouble("SGD");
-                            double USD = jsonObject.getDouble("USD");
-                            double AUD = jsonObject.getDouble("AUD");
-                            double NZD = jsonObject.getDouble("NZD");
-                            double EUR = jsonObject.getDouble("EUR");
-                            double CAD = jsonObject.getDouble("CAD");
-                            double CNY = jsonObject.getDouble("CNY");
-                            double HKD = jsonObject.getDouble("HKD");
-                            double PHP = jsonObject.getDouble("PHP");
-                            double THB = jsonObject.getDouble("THB");
+                            final double SGD = jsonObject.getDouble("SGD");
+                            final double USD = jsonObject.getDouble("USD");
+                            final double AUD = jsonObject.getDouble("AUD");
+                            final double NZD = jsonObject.getDouble("NZD");
+                            final double EUR = jsonObject.getDouble("EUR");
+                            final double CAD = jsonObject.getDouble("CAD");
+                            final double CNY = jsonObject.getDouble("CNY");
+                            final double HKD = jsonObject.getDouble("HKD");
+                            final double PHP = jsonObject.getDouble("PHP");
+                            final double THB = jsonObject.getDouble("THB");
                             sgdRate.setText("SGD\n" + String.valueOf(String.format("%.4f", SGD)));
                             usdRate.setText("USD\n" + String.valueOf(String.format("%.4f", USD)));
                             audRate.setText("AUD\n" + String.valueOf(String.format("%.4f", AUD)));
@@ -96,12 +98,16 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                                     CountryList countrySelected = (CountryList) parent.getItemAtPosition(position);
-                                    String countrySelectedName = countrySelected.getCountryNameV();
+                                    final String countrySelectedName = countrySelected.getCountryNameV();
                                     Toast.makeText(MainActivity.this, countrySelectedName + " selected", Toast.LENGTH_SHORT).show();
                                     spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                         @Override
                                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                                            CountryList countrySelected2 = (CountryList) parent.getItemAtPosition(position);
+                                            String countrySelectedName2 = countrySelected2.getCountryNameV();
+                                            Toast.makeText(MainActivity.this, countrySelectedName2 + " selected", Toast.LENGTH_SHORT).show();
+                                            calculate(countrySelectedName, countrySelectedName2, SGD,
+                                                    USD,AUD,NZD,EUR,CAD,CNY,HKD,PHP,THB);
                                         }
 
                                         @Override
@@ -128,6 +134,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mQueue.add(request);
+        exchange.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("DefaultLocale")
+            @Override
+            public void onClick(View v) {
+                viewText2.setText(String.valueOf(String.format("%.4f", result)));
+            }
+        });
     }
 
     private void initlist (){
@@ -188,4 +201,42 @@ public class MainActivity extends AppCompatActivity {
         mQueue.add(request);
     }
     }*/
+
+   public double calculate(String selected1, String selected2, double SGD, double USD, double AUD, double NZD,
+                     double EUR, double CAD, double CNY, double HKD, double PHP, double THB) {
+       try {
+
+           if (selected1.equals("SGD")) {
+               if (selected2.equals("SGD")) {
+                   result = SGD;
+               } else if (selected2.equals("USD")) {
+                   result = USD * Double.parseDouble(String.valueOf(editText1.getText()));
+               } else if (selected2.equals("AUD")) {
+                   result = AUD * Double.parseDouble(String.valueOf(editText1.getText()));
+               } else if (selected2.equals("NZD")) {
+                   result = NZD * Double.parseDouble(String.valueOf(editText1.getText()));
+               } else if (selected2.equals("EUR")) {
+                   result = EUR * Double.parseDouble(String.valueOf(editText1.getText()));
+               } else if (selected2.equals("CAD")) {
+                   result = CAD * Double.parseDouble(String.valueOf(editText1.getText()));
+               } else if (selected2.equals("CNY")) {
+                   result = CNY * Double.parseDouble(String.valueOf(editText1.getText()));
+               } else if (selected2.equals("HKD")) {
+                   result = HKD * Double.parseDouble(String.valueOf(editText1.getText()));
+               } else if (selected2.equals("PHP")) {
+                   result = PHP * Double.parseDouble(String.valueOf(editText1.getText()));
+               } else {
+                   result = THB * Double.parseDouble(String.valueOf(editText1.getText()));
+               }
+           }
+
+       }catch (Exception e){
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+       }return result;
+   }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }

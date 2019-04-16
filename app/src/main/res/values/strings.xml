@@ -3,6 +3,7 @@
     <string name="exchangeButton">Exchange</string>
     <string name="sgd_spinner_text">SGD</string>
     <string name="rate_table_text">Rate Table</string>
+    <string name="inputText">1.0000</string>
 
     <string-array name="currency_list">
         <item>SGD</item>

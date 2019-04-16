@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         hkdRate = findViewById(R.id.HKDRate);
         phpRate = findViewById(R.id.PHPRate);
         thbRate = findViewById(R.id.THDRate);
-        result = 1.0;
         mQueue = Volley.newRequestQueue(this);
         initlist();
 
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
                             spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                 @Override
-                                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                                public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
                                     CountryList countrySelected = (CountryList) parent.getItemAtPosition(position);
                                     final String countrySelectedName = countrySelected.getCountryNameV();
                                     Toast.makeText(MainActivity.this, countrySelectedName + " selected", Toast.LENGTH_SHORT).show();
@@ -140,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         mQueue.add(request);
+        result = 1.0;
         exchange.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("DefaultLocale")
             @Override
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-   public double calculate(String selected1, String selected2, final double SGD, double USD, double AUD, double NZD,
+   public double calculate(String selected1, String selected2, double SGD, double USD, double AUD, double NZD,
                            double EUR, double CAD, double CNY, double HKD, double PHP, double THB) {
 
       try {
@@ -313,6 +313,102 @@ public class MainActivity extends AppCompatActivity {
                    result = PHP/CAD;
                } else {
                    result = THB/CAD;
+               }return result;
+           }
+
+           else if (selected1.equals("CNY")) {
+               if (selected2.equals("SGD")) {
+                   result = (SGD/CNY);
+               } else if (selected2.equals("USD")) {
+                   result = USD/CNY;
+               } else if (selected2.equals("AUD")) {
+                   result = AUD/CNY;
+               } else if (selected2.equals("NZD")) {
+                   result = NZD/CNY;
+               } else if (selected2.equals("EUR")) {
+                   result = EUR/CNY;
+               } else if (selected2.equals("CAD")) {
+                   result = CAD/CNY;
+               } else if (selected2.equals("CNY")) {
+                   result = 1.0;
+               } else if (selected2.equals("HKD")) {
+                   result = HKD/CNY;
+               } else if (selected2.equals("PHP")) {
+                   result = PHP/CNY;
+               } else {
+                   result = THB/CNY;
+               }return result;
+           }
+
+           else if (selected1.equals("HKD")) {
+               if (selected2.equals("SGD")) {
+                   result = (SGD/HKD);
+               } else if (selected2.equals("USD")) {
+                   result = USD/HKD;
+               } else if (selected2.equals("AUD")) {
+                   result = AUD/HKD;
+               } else if (selected2.equals("NZD")) {
+                   result = NZD/HKD;
+               } else if (selected2.equals("EUR")) {
+                   result = EUR/HKD;
+               } else if (selected2.equals("CAD")) {
+                   result = CAD/HKD;
+               } else if (selected2.equals("CNY")) {
+                   result = CNY/HKD;
+               } else if (selected2.equals("HKD")) {
+                   result = 1.0;
+               } else if (selected2.equals("PHP")) {
+                   result = PHP/HKD;
+               } else {
+                   result = THB/HKD;
+               }return result;
+           }
+
+           else if (selected1.equals("PHP")) {
+               if (selected2.equals("SGD")) {
+                   result = (SGD/PHP);
+               } else if (selected2.equals("USD")) {
+                   result = USD/PHP;
+               } else if (selected2.equals("AUD")) {
+                   result = AUD/PHP;
+               } else if (selected2.equals("NZD")) {
+                   result = NZD/PHP;
+               } else if (selected2.equals("EUR")) {
+                   result = EUR/PHP;
+               } else if (selected2.equals("CAD")) {
+                   result = CAD/PHP;
+               } else if (selected2.equals("CNY")) {
+                   result = CNY/PHP;
+               } else if (selected2.equals("HKD")) {
+                   result = HKD/PHP;
+               } else if (selected2.equals("PHP")) {
+                   result = 1.0;
+               } else {
+                   result = THB/HKD;
+               }return result;
+           }
+
+           else {
+               if (selected2.equals("SGD")) {
+                   result = (SGD/THB);
+               } else if (selected2.equals("USD")) {
+                   result = USD/THB;
+               } else if (selected2.equals("AUD")) {
+                   result = AUD/THB;
+               } else if (selected2.equals("NZD")) {
+                   result = NZD/THB;
+               } else if (selected2.equals("EUR")) {
+                   result = EUR/THB;
+               } else if (selected2.equals("CAD")) {
+                   result = CAD/THB;
+               } else if (selected2.equals("CNY")) {
+                   result = CNY/THB;
+               } else if (selected2.equals("HKD")) {
+                   result = HKD/THB;
+               } else if (selected2.equals("PHP")) {
+                   result = PHP/THB;
+               } else {
+                   result = 1.0;
                }return result;
            }
 

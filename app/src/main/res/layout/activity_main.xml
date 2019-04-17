@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/background"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
@@ -40,10 +40,12 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
-                    android:background="@color/White"
+                    android:background="@color/darkslateblue"
                     android:gravity="center"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/Black" />
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    />
 
             </LinearLayout>
 
@@ -68,9 +70,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
-                    android:background="@color/White"
+                    android:background="@color/darkslateblue"
                     android:gravity="center"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/White"
                     android:textSize="20sp"/>
 
 
@@ -86,10 +88,24 @@
                     android:id="@+id/exchangeButton"
                     android:layout_width="152dp"
                     android:layout_height="match_parent"
-                    android:background="@color/White"
+                    android:background="@color/darkslateblue"
                     android:text="@string/exchangeButton"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/refreshButton"
+                    android:layout_width="152dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/darkslateblue"
+                    android:text="@string/refreshText"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    android:onClick="refresher"/>
 
             </LinearLayout>
 
@@ -101,13 +117,14 @@
 
                 <TextView
                     android:id="@+id/result_text"
-                    android:layout_width="180dp"
+                    android:layout_width="345dp"
                     android:layout_height="match_parent"
-                    android:background="@color/White"
+                    android:background="@color/lightpurple"
                     android:gravity="center"
                     android:text="@string/rate_table_text"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
+                    android:textColor="@color/White"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
 
             </LinearLayout>
 
@@ -134,9 +151,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp"/>
 
                     <ImageView
@@ -154,9 +171,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp"/>
                 </TableRow>
 
@@ -179,9 +196,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -199,9 +216,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp" />
 
                 </TableRow>
@@ -225,9 +242,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -245,9 +262,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp"/>
 
                 </TableRow>
@@ -271,9 +288,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp"/>
 
                     <ImageView
@@ -291,9 +308,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp"/>
 
                 </TableRow>
@@ -317,9 +334,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp" />
 
                     <ImageView
@@ -337,9 +354,9 @@
                         android:layout_height="58dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginLeft="5dp"
-                        android:background="@color/White"
+                        android:background="@color/lightpurple"
                         android:gravity="center"
-                        android:textColor="@color/Black"
+                        android:textColor="@color/White"
                         android:textSize="20sp" />
 
 

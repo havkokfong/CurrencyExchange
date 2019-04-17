@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White">
+    android:background="@color/darkslateblue">
 
     <ImageView
         android:id="@+id/flag_image"
@@ -20,7 +20,9 @@
         android:gravity="center"
         android:padding="1dp"
         android:text="@string/sgd_spinner_text"
-        android:textColor="@color/Black"
-        android:textSize="20sp" />
+        android:textColor="@color/White"
+        android:textSize="20sp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp" />
 
 </LinearLayout>

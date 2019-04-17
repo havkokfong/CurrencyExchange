@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editText1;
-    private Button exchange;
+    private Button exchange, refresh;
     private ArrayList countryList;
     private CountryAdapter mAdapter;
     private RequestQueue mQueue;
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         editText1 = findViewById(R.id.editText1);
         viewText2 = findViewById(R.id.viewText2);
         exchange = findViewById(R.id.exchangeButton);
+        refresh = findViewById(R.id.refreshButton);
         sgdRate = findViewById(R.id.SGDRate);
         usdRate = findViewById(R.id.USDRate);
         audRate = findViewById(R.id.AUDRate);
@@ -153,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // spinner list
     private void initlist (){
         countryList = new ArrayList<>();
         countryList.add(new CountryList("SGD", R.drawable.singapore));
@@ -167,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         countryList.add(new CountryList("THB", R.drawable.thailand));
     }
 
-
+    //checking condition for calculate the currency
    public double calculate(String selected1, String selected2, double SGD, double USD, double AUD, double NZD,
                            double EUR, double CAD, double CNY, double HKD, double PHP, double THB) {
 
@@ -415,5 +417,50 @@ public class MainActivity extends AppCompatActivity {
        }catch (Exception e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
        }return result;
+   }
+
+
+   public void refresher(View view){
+       String url = "https://api.exchangeratesapi.io/latest?base=SGD";
+       JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+               new Response.Listener<JSONObject>() {
+                   @SuppressLint({"DefaultLocale", "SetTextI18n"})
+                   @Override
+                   public void onResponse(JSONObject response) {
+                       try {
+                           JSONObject jsonObject = response.getJSONObject("rates");
+                           final double SGD = jsonObject.getDouble("SGD");
+                           final double USD = jsonObject.getDouble("USD");
+                           final double AUD = jsonObject.getDouble("AUD");
+                           final double NZD = jsonObject.getDouble("NZD");
+                           final double EUR = jsonObject.getDouble("EUR");
+                           final double CAD = jsonObject.getDouble("CAD");
+                           final double CNY = jsonObject.getDouble("CNY");
+                           final double HKD = jsonObject.getDouble("HKD");
+                           final double PHP = jsonObject.getDouble("PHP");
+                           final double THB = jsonObject.getDouble("THB");
+                           sgdRate.setText("SGD\n" + String.valueOf(String.format("%.4f", SGD)));
+                           usdRate.setText("USD\n" + String.valueOf(String.format("%.4f", USD)));
+                           audRate.setText("AUD\n" + String.valueOf(String.format("%.4f", AUD)));
+                           nzdRate.setText("NZD\n" + String.valueOf(String.format("%.4f", NZD)));
+                           eurRate.setText("EUR\n" + String.valueOf(String.format("%.4f", EUR)));
+                           cadRate.setText("CAD\n" + String.valueOf(String.format("%.4f", CAD)));
+                           cnyRate.setText("CNY\n" + String.valueOf(String.format("%.4f", CNY)));
+                           hkdRate.setText("HKD\n" + String.valueOf(String.format("%.4f", HKD)));
+                           phpRate.setText("PHP\n" + String.valueOf(String.format("%.4f", PHP)));
+                           thbRate.setText("THB\n" + String.valueOf(String.format("%.4f", THB)));
+                       } catch (JSONException e) {
+                           e.printStackTrace();
+                       }
+                   }
+               }, new Response.ErrorListener() {
+           @Override
+           public void onErrorResponse(VolleyError error) {
+               error.printStackTrace();
+           }
+       });
+       mQueue.add(request);
+       editText1.setText(null);
+       viewText2.setText(null);
    }
 }

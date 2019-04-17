@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Currency Exchange</string>
-    <string name="exchangeButton">Exchange</string>
+    <string name="exchangeButton">Convert</string>
     <string name="sgd_spinner_text">SGD</string>
     <string name="rate_table_text">Rate Table</string>
     <string name="inputText">1</string>
+    <string name="refreshText">Refresh</string>
 
     <string-array name="currency_list">
         <item>SGD</item>

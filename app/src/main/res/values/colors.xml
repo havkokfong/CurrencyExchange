@@ -6,4 +6,8 @@
     <color name="Black">#000000</color>
     <color name="White">#ffffff</color>
     <color name="Gray">#A2A1A1</color>
+    <color name="Dark_purple">#6D2D8D</color>
+    <color name="honeyDrew">#F0FFF0</color>
+    <color name="darkslateblue">#4A9ED5</color>
+    <color name="lightpurple">#5081D5</color>
 </resources>

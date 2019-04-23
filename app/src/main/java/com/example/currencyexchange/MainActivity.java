@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView sgdRate, usdRate, audRate, nzdRate, eurRate, cadRate, cnyRate, hkdRate,phpRate,
             thbRate, viewText2;
     double result ;
+    int choice;
+    private SharedPreferences preferences;
+    private LinearLayout activity_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.action_bar);
         setSupportActionBar(toolbar);
 
+        preferences = getSharedPreferences("value", MODE_PRIVATE);
         editText1 = findViewById(R.id.editText1);
         viewText2 = findViewById(R.id.viewText2);
         exchange = findViewById(R.id.exchangeButton);
@@ -69,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         hkdRate = findViewById(R.id.HKDRate);
         phpRate = findViewById(R.id.PHPRate);
         thbRate = findViewById(R.id.THDRate);
+        activity_layout = findViewById(R.id.activity_layout);
         mQueue = Volley.newRequestQueue(this);
         initlist();
 
@@ -492,5 +498,22 @@ public class MainActivity extends AppCompatActivity {
             default:
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        choice = preferences.getInt("theme_preferences", 0);
+        if (choice == 0){
+            activity_layout.setBackgroundResource(R.drawable.background);
+        }
+
+        else if (choice == 1){
+            activity_layout.setBackgroundResource(R.drawable.background2);
+        }
+
+        else if (choice == 2){
+            activity_layout.setBackgroundResource(R.drawable.background3);
+        }
     }
 }

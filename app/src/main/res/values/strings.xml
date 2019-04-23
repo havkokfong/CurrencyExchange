@@ -6,6 +6,11 @@
     <string name="inputText">1</string>
     <string name="refreshText">Refresh</string>
     <string name="setting_name">Settings</string>
+    <string name="theme_choices_text">Theme Choices</string>
+    <string name="background_1_text">Background 1</string>
+    <string name="background_2_text">Background 2</string>
+    <string name="background_3_Text">Background 3</string>
+    <string name="back_Text">Back</string>
 
     <string-array name="currency_list">
         <item>SGD</item>

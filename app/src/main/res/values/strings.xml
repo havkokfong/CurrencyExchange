@@ -5,6 +5,7 @@
     <string name="rate_table_text">Rate Table</string>
     <string name="inputText">1</string>
     <string name="refreshText">Refresh</string>
+    <string name="setting_name">Settings</string>
 
     <string-array name="currency_list">
         <item>SGD</item>

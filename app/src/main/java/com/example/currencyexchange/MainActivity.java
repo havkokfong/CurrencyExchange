@@ -505,7 +505,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         choice = preferences.getInt("theme_preferences", 0);
         if (choice == 0){
-            activity_layout.setBackgroundResource(R.drawable.background);
+            activity_layout.setBackgroundResource(R.drawable.background5);
         }
 
         else if (choice == 1){
@@ -513,7 +513,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         else if (choice == 2){
-            activity_layout.setBackgroundResource(R.drawable.background3);
+            activity_layout.setBackgroundResource(R.drawable.background6);
         }
+
+        else if (choice == 3){
+            activity_layout.setBackgroundResource(R.drawable.background4);
+        }
+
     }
 }

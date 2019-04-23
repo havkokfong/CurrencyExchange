@@ -11,6 +11,7 @@
     <string name="background_2_text">Background 2</string>
     <string name="background_3_Text">Background 3</string>
     <string name="back_Text">Back</string>
+    <string name="background_4_Text">Background 4</string>
 
     <string-array name="currency_list">
         <item>SGD</item>

@@ -1,6 +1,7 @@
 package com.example.currencyexchange;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.provider.MediaStore;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,6 +36,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static com.example.currencyexchange.R.id.action_setting;
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     int choice;
     private SharedPreferences preferences;
     private LinearLayout activity_layout;
+    DecimalFormat currency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.action_bar);
         setSupportActionBar(toolbar);
 
+        currency = new DecimalFormat("$###,###,###.####");
         preferences = getSharedPreferences("value", MODE_PRIVATE);
         editText1 = findViewById(R.id.editText1);
         viewText2 = findViewById(R.id.viewText2);
@@ -103,16 +108,16 @@ public class MainActivity extends AppCompatActivity {
                             final double HKD = jsonObject.getDouble("HKD");
                             final double PHP = jsonObject.getDouble("PHP");
                             final double THB = jsonObject.getDouble("THB");
-                            sgdRate.setText("SGD\n" + String.valueOf(String.format("%.4f", SGD)));
-                            usdRate.setText("USD\n" + String.valueOf(String.format("%.4f", USD)));
-                            audRate.setText("AUD\n" + String.valueOf(String.format("%.4f", AUD)));
-                            nzdRate.setText("NZD\n" + String.valueOf(String.format("%.4f", NZD)));
-                            eurRate.setText("EUR\n" + String.valueOf(String.format("%.4f", EUR)));
-                            cadRate.setText("CAD\n" + String.valueOf(String.format("%.4f", CAD)));
-                            cnyRate.setText("CNY\n" + String.valueOf(String.format("%.4f", CNY)));
-                            hkdRate.setText("HKD\n" + String.valueOf(String.format("%.4f", HKD)));
-                            phpRate.setText("PHP\n" + String.valueOf(String.format("%.4f", PHP)));
-                            thbRate.setText("THB\n" + String.valueOf(String.format("%.4f", THB)));
+                            sgdRate.setText("SGD\n" + String.valueOf(currency.format(SGD)));
+                            usdRate.setText("USD\n" + String.valueOf(currency.format(USD)));
+                            audRate.setText("AUD\n" + String.valueOf(currency.format(AUD)));
+                            nzdRate.setText("NZD\n" + String.valueOf(currency.format(NZD)));
+                            eurRate.setText("EUR\n" + String.valueOf(currency.format(EUR)));
+                            cadRate.setText("CAD\n" + String.valueOf(currency.format(CAD)));
+                            cnyRate.setText("CNY\n" + String.valueOf(currency.format(CNY)));
+                            hkdRate.setText("HKD\n" + String.valueOf(currency.format(HKD)));
+                            phpRate.setText("PHP\n" + String.valueOf(currency.format(PHP)));
+                            thbRate.setText("THB\n" + String.valueOf(currency.format(THB)));
 
                             spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                 @Override
@@ -163,9 +168,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     double total = result * Double.parseDouble(String.valueOf(editText1.getText()));
-                    viewText2.setText(String.valueOf(String.format("%.4f", total)));
+                    viewText2.setText(String.valueOf(currency.format(total)));
                 }catch (Exception e){}
-
+                close_Keyboard();
             }
         });
     }
@@ -455,16 +460,16 @@ public class MainActivity extends AppCompatActivity {
                            final double HKD = jsonObject.getDouble("HKD");
                            final double PHP = jsonObject.getDouble("PHP");
                            final double THB = jsonObject.getDouble("THB");
-                           sgdRate.setText("SGD\n" + String.valueOf(String.format("%.4f", SGD)));
-                           usdRate.setText("USD\n" + String.valueOf(String.format("%.4f", USD)));
-                           audRate.setText("AUD\n" + String.valueOf(String.format("%.4f", AUD)));
-                           nzdRate.setText("NZD\n" + String.valueOf(String.format("%.4f", NZD)));
-                           eurRate.setText("EUR\n" + String.valueOf(String.format("%.4f", EUR)));
-                           cadRate.setText("CAD\n" + String.valueOf(String.format("%.4f", CAD)));
-                           cnyRate.setText("CNY\n" + String.valueOf(String.format("%.4f", CNY)));
-                           hkdRate.setText("HKD\n" + String.valueOf(String.format("%.4f", HKD)));
-                           phpRate.setText("PHP\n" + String.valueOf(String.format("%.4f", PHP)));
-                           thbRate.setText("THB\n" + String.valueOf(String.format("%.4f", THB)));
+                           sgdRate.setText("SGD\n" + String.valueOf(currency.format(SGD)));
+                           usdRate.setText("USD\n" + String.valueOf(currency.format(USD)));
+                           audRate.setText("AUD\n" + String.valueOf(currency.format(AUD)));
+                           nzdRate.setText("NZD\n" + String.valueOf(currency.format(NZD)));
+                           eurRate.setText("EUR\n" + String.valueOf(currency.format(EUR)));
+                           cadRate.setText("CAD\n" + String.valueOf(currency.format(CAD)));
+                           cnyRate.setText("CNY\n" + String.valueOf(currency.format(CNY)));
+                           hkdRate.setText("HKD\n" + String.valueOf(currency.format(HKD)));
+                           phpRate.setText("PHP\n" + String.valueOf(currency.format(PHP)));
+                           thbRate.setText("THB\n" + String.valueOf(currency.format(THB)));
                        } catch (JSONException e) {
                            e.printStackTrace();
                        }
@@ -520,5 +525,13 @@ public class MainActivity extends AppCompatActivity {
             activity_layout.setBackgroundResource(R.drawable.background4);
         }
 
+    }
+
+    private void close_Keyboard(){
+        View view = this.getCurrentFocus();
+        if (view != null){
+            InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

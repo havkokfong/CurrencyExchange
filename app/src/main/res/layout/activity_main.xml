@@ -47,11 +47,12 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
-                    android:background="@color/darkslateblue"
+                    android:background="@color/White"
                     android:gravity="center"
                     android:inputType="numberDecimal"
-                    android:textColor="@color/White"
+                    android:textColor="@color/Black"
                     android:textSize="20sp"
+                    android:hint="Enter here"
                     />
 
             </LinearLayout>
@@ -161,7 +162,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                     <ImageView
                         android:id="@+id/usaImage"
@@ -181,7 +182,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
                 </TableRow>
 
                 <TableRow
@@ -206,7 +207,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                     <ImageView
                         android:layout_width="80dp"
@@ -226,7 +227,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                 </TableRow>
 
@@ -252,7 +253,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                     <ImageView
                         android:layout_width="80dp"
@@ -272,7 +273,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                 </TableRow>
 
@@ -298,7 +299,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                     <ImageView
                         android:layout_width="80dp"
@@ -318,7 +319,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp"/>
+                        android:textSize="18sp"/>
 
                 </TableRow>
 
@@ -344,7 +345,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                     <ImageView
                         android:layout_width="80dp"
@@ -364,7 +365,7 @@
                         android:background="@color/lightpurple"
                         android:gravity="center"
                         android:textColor="@color/White"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
 
                 </TableRow>
